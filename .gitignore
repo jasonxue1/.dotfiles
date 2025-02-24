@@ -3,5 +3,5 @@
 **/.zsh_sessions
 **/.zcompdump
 **/.zsh_history
-**/sessions.vim
+**/Session.vim
 **/tmux/plugins

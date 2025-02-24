@@ -1,0 +1,6 @@
+source "$ZDOTDIR/environment.zsh"
+source "$ZDOTDIR/functions.zsh"
+source "$ZDOTDIR/zinit.zsh"
+source "$ZDOTDIR/plugins.zsh"
+source "$ZDOTDIR/alias.zsh"
+source "$ZDOTDIR/themes.zsh"

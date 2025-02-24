@@ -1,0 +1,10 @@
+alias v="neovide"
+alias vi="neovide"
+alias vim="neovide"
+alias xtex="xelatex main.tex"
+alias ls='eza'
+alias ll='eza -lg --icons'
+alias cat='bat'
+alias tn='tmux new -s'
+alias ta='tmux a -t'
+alias y='yazi'

@@ -1,0 +1,10 @@
+{
+  "Test": {
+    "prefix": "test",
+    "body": [
+      "This is a test",
+      "It's just a test"
+    ],
+    "description": "It's a test"
+  }
+}

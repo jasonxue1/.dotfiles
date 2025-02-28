@@ -12,7 +12,7 @@ export DBUS_SESSION_BUS_ADDRESS="unix:path=$DBUS_LAUNCHD_SESSION_BUS_SOCKET"
 
 
 # 设置默认编辑器
-export EDITOR="neovide"
+export EDITOR="nvim"
 
 # 配置终端颜色和提示符
 export PS1="%n@%m:%~%# "

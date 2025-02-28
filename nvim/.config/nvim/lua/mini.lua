@@ -20,7 +20,9 @@ local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 -- }}}
 -- mini.files {{{
 now(function()
-  require("mini.files").setup()
+  require("mini.files").setup({
+    windows = { preview = true },
+  })
   local function minifiles_open_current()
     if vim.fn.filereadable(vim.fn.bufname("%")) > 0 then
       MiniFiles.open(vim.api.nvim_buf_get_name(0))
@@ -174,7 +176,10 @@ later(function()
   })
   require("nvim-treesitter.configs").setup({
     ensure_installed = "all",
-    highlight = { enable = true },
+    highlight = {
+      enable = true,
+      disable = { "tmux" },
+    },
   })
 end)
 -- }}}

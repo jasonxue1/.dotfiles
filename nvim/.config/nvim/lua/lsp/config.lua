@@ -91,3 +91,6 @@ lspconfig.lua_ls.setup({
   },
 })
 -- }}}
+-- ltex {{{
+require("lspconfig").ltex.setup({})
+-- }}}

@@ -428,3 +428,10 @@ later(function()
   })
 end)
 -- }}}
+-- startuptime {{{
+later(function()
+  add({
+    source = "dstein64/vim-startuptime",
+  })
+end)
+-- }}}

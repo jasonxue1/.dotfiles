@@ -14,6 +14,7 @@ later(function()
     ensure_installed = {
       -- "ast_grep",
       "lua_ls",
+      "ltex",
     },
   })
 end)
@@ -28,30 +29,6 @@ later(function()
   }
 end)
 -- }}}
--- -- lsp {{{
--- later(function()
---   add({
---     source = "VonHeikemen/lsp-zero.nvim",
---     depends = {
---       "neovim/nvim-lspconfig",
---       "hrsh7th/nvim-cmp",
---       "hrsh7th/cmp-nvim-lsp",
---     },
---     branch = "v3.x",
---   })
---   local lsp_zero = require("lsp-zero")
---
---   lsp_zero.on_attach(function(client, bufnr)
---     -- see :help lsp-zero-keybindings to learn the available actions
---     lsp_zero.default_keymaps({
---       buffer = bufnr,
---       preserve_mappings = false,
---     })
---   end)
---
---   vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
--- end)
--- -- }}}
 -- lsp {{{
 later(function()
   add({
@@ -73,6 +50,7 @@ later(function()
     formatters_by_ft = {
       lua = { "stylua" },
       json = { "jq" },
+      tex = { "tex-fmt" },
     },
 
     format_on_save = {

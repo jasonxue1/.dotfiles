@@ -10,7 +10,10 @@ later(function()
   })
   require("mason").setup()
   require("mason-lspconfig").setup({
-    ensure_installed = {},
+    ensure_installed = {
+      -- "ast_grep",
+      "lua_ls",
+    },
   })
 end)
 -- }}}
@@ -20,7 +23,7 @@ later(function()
     source = "mfussenegger/nvim-lint",
   })
   require("lint").linters_by_ft = {
-    -- lua = { "luacheck" },
+    -- lua = { "ast_grep" },
   }
 end)
 -- }}}
@@ -44,6 +47,8 @@ later(function()
       preserve_mappings = false,
     })
   end)
+
+  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 end)
 -- }}}
 -- blink {{{

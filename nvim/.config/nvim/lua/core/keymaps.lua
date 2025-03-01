@@ -52,3 +52,6 @@ keymap.set("t", "<C-l>", [[ <C-\><C-N><C-w>l ]], opt)
 -- visual模式下缩进代码
 keymap.set("v", "<", "<gv", opt)
 keymap.set("v", ">", ">gv", opt)
+
+-- close nvim
+keymap.set("n", "<leader>q", ":qa<CR>", { desc = "Close nvim" })

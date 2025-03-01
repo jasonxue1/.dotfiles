@@ -1,0 +1,6 @@
+{
+  "workspace.library": [
+    "/Users/jason/.config/nvim",
+  ],
+  "workspace.checkThirdParty": false
+}

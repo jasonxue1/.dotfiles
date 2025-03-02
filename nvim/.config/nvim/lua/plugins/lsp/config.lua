@@ -57,7 +57,7 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 
-local lsp_capabilities = vim.lsp.protocol.make_client_capabilities()
+local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local on_init = function(client, bufnr)
   vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())

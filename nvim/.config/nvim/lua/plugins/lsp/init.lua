@@ -15,6 +15,8 @@ later(function()
       -- "ast_grep",
       "lua_ls",
       "ltex",
+      "pyright",
+      "ruff",
     },
   })
 end)

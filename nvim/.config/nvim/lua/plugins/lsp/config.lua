@@ -94,7 +94,7 @@ local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 local on_init = function(client, bufnr)
   vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 end
--- lua_ls {{{
+-- lua {{{
 lspconfig.lua_ls.setup({
   capabilities = lsp_capabilities,
   on_init = on_init,
@@ -123,6 +123,10 @@ lspconfig.lua_ls.setup({
   },
 })
 -- }}}
--- ltex {{{
+-- latex {{{
 require("lspconfig").ltex.setup({})
+-- }}}
+-- python {{{
+require("lspconfig").ruff.setup({})
+require("lspconfig").pyright.setup({})
 -- }}}

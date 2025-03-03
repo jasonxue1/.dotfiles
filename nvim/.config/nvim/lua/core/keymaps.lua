@@ -2,9 +2,10 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-local opt = { noremap = true, silent = true }
+local opts = { noremap = true, silent = true }
 local keymap = vim.keymap
 
+keymap.set("n", "gp", "<Nop>", opt)
 -- save and source
 keymap.set(
   "n",
@@ -37,21 +38,22 @@ keymap.set("n", "<leader>ne", "<C-w>=", { desc = "Make splits equal size" })
 keymap.set("n", "<leader>nx", "<cmd>close<CR>", { desc = "Close current split" })
 
 -- buffer management
-keymap.set("n", "<leader>x", ":bd!<CR>", { desc = "Close current buffer" })
+keymap.set("n", "<leader>x", ":bd<CR>", { desc = "Close current buffer" })
 keymap.set("n", "L", ":bn<CR>", { desc = "Go to next buffer" })
 keymap.set("n", "H", ":bp<CR>", { desc = "Go to previous buffer" })
 
 -- Terminal相关
 keymap.set("n", "<leader>zh", ":sp | terminal<CR>", { desc = "Down terminal" })
 keymap.set("n", "<leader>zv", ":vsp | terminal<CR>", { desc = "Right terminal" })
-keymap.set("t", "<C-h>", [[ <C-\><C-N><C-w>h ]], opt)
-keymap.set("t", "<C-j>", [[ <C-\><C-N><C-w>j ]], opt)
-keymap.set("t", "<C-k>", [[ <C-\><C-N><C-w>k ]], opt)
-keymap.set("t", "<C-l>", [[ <C-\><C-N><C-w>l ]], opt)
+keymap.set("t", "<C-h>", [[ <C-\><C-N><C-w>h ]], opts)
+keymap.set("t", "<C-j>", [[ <C-\><C-N><C-w>j ]], opts)
+keymap.set("t", "<C-k>", [[ <C-\><C-N><C-w>k ]], opts)
+keymap.set("t", "<C-l>", [[ <C-\><C-N><C-w>l ]], opts)
 
 -- visual模式下缩进代码
-keymap.set("v", "<", "<gv", opt)
-keymap.set("v", ">", ">gv", opt)
+keymap.set("v", "<", "<gv", opts)
+keymap.set("v", ">", ">gv", opts)
 
 -- close nvim
-keymap.set("n", "<leader>q", ":qa<CR>", { desc = "Close nvim" })
+keymap.set("n", "<leader>q", ":qa<CR>", { desc = "Quit nvim" })
+-- keymap.set("n", "q", ":q<CR>", opt)

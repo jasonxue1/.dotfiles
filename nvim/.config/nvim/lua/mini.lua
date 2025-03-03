@@ -126,6 +126,11 @@ later(function()
       { mode = "n", keys = "<leader>g", desc = "+ Git" },
       { mode = "n", keys = "<leader>t", desc = "+ LaTeX" },
       { mode = "n", keys = "<leader>e", desc = "+ MiniFiles" },
+      { mode = "g", keys = "gp", desc = "+ Preview" },
+      { mode = "n", keys = "<leader>z", desc = "+ Ternimal" },
+      { mode = "n", keys = "<leader>c", desc = "+ See available code actions" },
+      { mode = "n", keys = "<leader>r", desc = "+ Rename/Restart" },
+      { mode = "n", keys = "<leader>n", desc = "+ Window" },
     },
     window = {
       delay = 300,

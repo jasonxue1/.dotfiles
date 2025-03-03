@@ -1,6 +1,4 @@
 alias v="nvim"
-alias vi="nvim"
-alias vim="nvim"
 alias ls='eza --icons'
 alias ll='eza -lg --icons'
 alias cat='bat'

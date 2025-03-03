@@ -93,6 +93,7 @@ later(function()
       "nvim-lua/plenary.nvim",
       "hrsh7th/cmp-nvim-lua",
       "petertriho/cmp-git",
+      "kdheepak/cmp-latex-symbols",
     },
   })
 
@@ -156,12 +157,18 @@ later(function()
     }),
 
     sources = cmp.config.sources({
-      { name = "nvim_lsp" },
-      { name = "mini_snippets" },
-      { name = "path" },
-      { name = "buffer", keyword_length = 5 },
-      { name = "nvim_lua" },
+      { name = "nvim_lsp", priority = 4 },
+      { name = "mini_snippets", priority = 3 },
+      { name = "path", priority = 100 },
+      { name = "buffer", keyword_length = 2, priority = 2 },
+      { name = "nvim_lua", priority = 1 },
+      { name = "latex_symbols", option = { strategy = 0 } },
     }),
+
+    experimental = {
+      native_menu = false,
+      ghost_test = true,
+    },
   })
 
   -- To use git you need to install the plugin petertriho/cmp-git and uncomment lines below

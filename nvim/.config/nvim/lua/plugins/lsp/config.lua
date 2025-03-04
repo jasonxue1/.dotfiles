@@ -87,6 +87,7 @@ vim.diagnostic.config({
       [vim.diagnostic.severity.INFO] = " ",
     },
   },
+  virtual_text = true,
 })
 
 local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -124,9 +125,16 @@ lspconfig.lua_ls.setup({
 })
 -- }}}
 -- latex {{{
-require("lspconfig").ltex.setup({})
+require("lspconfig").ltex.setup({
+
+  capabilities = lsp_capabilities,
+  on_init = on_init,
+})
 -- }}}
 -- python {{{
 require("lspconfig").ruff.setup({})
-require("lspconfig").pyright.setup({})
+require("lspconfig").pyright.setup({
+  capabilities = lsp_capabilities,
+  on_init = on_init,
+})
 -- }}}

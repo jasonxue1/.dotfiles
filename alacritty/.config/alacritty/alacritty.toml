@@ -24,7 +24,7 @@ normal = { family = "Maple Mono NF CN", style = "Regular" }
 bold = { family = "Maple Mono NF CN", style = "Bold" }
 italic = { family = "Maple Mono NF CN", style = "Italic" }
 bold_italic = { family = "Maple Mono NF CN", style = "Bold Italic" }
-size = 13
+size = 15
 
 [bell]
 animation = "EaseOutExpo"

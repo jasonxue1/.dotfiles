@@ -226,6 +226,18 @@ later(function()
   })
 end)
 -- }}}
+-- outline {{{
+later(function()
+  add({
+    source = "hedyhli/outline.nvim",
+  })
+  vim.keymap.set("n", "<leader>o", "<cmd>Outline<CR>", { desc = "Toggle Outline" })
+
+  require("outline").setup({
+    -- Your setup opts here (leave empty to use defaults)
+  })
+end)
+-- }}}
 
 -- -- mini.completion {{{
 -- later(function()

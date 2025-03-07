@@ -7,6 +7,8 @@ later(function()
       "neovim/nvim-lspconfig",
       "williamboman/mason-lspconfig.nvim",
       "antosha417/nvim-lsp-file-operations",
+      -- "WhoIsSethDaniel/mason-tool-installer.nvim",
+      "mason-org/mason-registry"
     },
   })
   require("mason").setup()
@@ -19,6 +21,14 @@ later(function()
       "ruff",
     },
   })
+  -- require("mason-tool-installer").setup({
+  --   -- Install these linters, formatters, debuggers automatically
+  --   ensure_installed = {
+  --     "jq",
+  --     "stylua",
+  --     "tex-fmt",
+  --   },
+  -- })
 end)
 -- }}}
 -- nvim-lint {{{
@@ -171,15 +181,16 @@ later(function()
     }),
 
     sources = cmp.config.sources({
-      { name = "lazydev", group_index = 0 },
-      { name = "nvim_lsp", priority = 4 },
+      { name = "lazydev",       group_index = 0 },
+      { name = "nvim_lsp",      priority = 4 },
       { name = "mini_snippets", priority = 3 },
-      { name = "path", priority = 100 },
-      { name = "buffer", keyword_length = 2, priority = 2 },
-      { name = "nvim_lua", priority = 1 },
+      { name = "path",          priority = 100 },
+      { name = "buffer",        keyword_length = 2,       priority = 2 },
+      { name = "nvim_lua",      priority = 1 },
       { name = "latex_symbols", option = { strategy = 0 } },
       {
         name = "spell",
+        priority = 0,
         option = {
           keep_all_entries = false,
           enable_in_context = function()

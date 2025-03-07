@@ -30,7 +30,7 @@ now(function()
       MiniFiles.open(Minifiles.get_latest_path())
     end
   end
-  vim.keymap.set("n", "<leader>ee", ":lua MiniFiles.open()<CR>", { desc = "MiniFiles open" })
+  vim.keymap.set("n", "<leader>ee", "<cmd>lua MiniFiles.open()<CR>", { desc = "MiniFiles open" })
   vim.keymap.set("n", "<leader>ef", minifiles_open_current, { desc = "MiniFiles open current" })
   local show_dotfiles = true
 
@@ -142,12 +142,12 @@ end)
 -- mini.pick {{{
 later(function()
   require("mini.pick").setup({
-    vim.keymap.set("n", "<Leader>ff", ":Pick files<CR>", { desc = "Find files" }),
-    vim.keymap.set("n", "<Leader>fb", ":Pick buffers<CR>", { desc = "Find buffers" }),
-    vim.keymap.set("n", "<Leader>fh", ":Pick help<CR>", { desc = "Find helps" }),
-    vim.keymap.set("n", "<Leader>fg", ":Pick grep_live<CR>", { desc = "Grep" }),
+    vim.keymap.set("n", "<Leader>ff", "<cmd>Pick files<CR>", { desc = "Find files" }),
+    vim.keymap.set("n", "<Leader>fb", "<cmd>Pick buffers<CR>", { desc = "Find buffers" }),
+    vim.keymap.set("n", "<Leader>fh", "<cmd>Pick help<CR>", { desc = "Find helps" }),
+    vim.keymap.set("n", "<Leader>fg", "<cmd>Pick grep_live<CR>", { desc = "Grep" }),
     options = {
-      content_from_bottom = true,
+      content_from_bottom = false,
     },
     mappings = {
       move_down = "<C-j>",
@@ -253,7 +253,7 @@ later(function()
   vim.g.lazygit_config_file_path = {} -- table of custom config file paths
 
   vim.g.lazygit_on_exit_callback = nil -- optional function callback when exiting lazygit (useful for example to refresh some UI elements after lazy git has made some changes)
-  vim.keymap.set("n", "<leader>gg", ":LazyGit<CR>", { desc = "Lazygit" })
+  vim.keymap.set("n", "<leader>gg", "<cmd>LazyGit<CR>", { desc = "Lazygit" })
 end)
 -- }}}
 -- mini.sessions {{{
@@ -345,8 +345,8 @@ later(function()
   }
 
   -- key mappings
-  vim.keymap.set("n", "<leader>tc", ":VimtexCompile<CR>", { desc = "Compile LaTeX" })
-  vim.keymap.set("n", "<leader>tv", ":VimtexView<CR>", { desc = "View LaTeX" })
+  vim.keymap.set("n", "<leader>tc", "<cmd>VimtexCompile<CR>", { desc = "Compile LaTeX" })
+  vim.keymap.set("n", "<leader>tv", "<cmd>VimtexView<CR>", { desc = "View LaTeX" })
 end)
 -- }}}
 --  rainbow {{{
@@ -438,5 +438,10 @@ later(function()
   add({
     source = "dstein64/vim-startuptime",
   })
+end)
+-- }}}
+-- mini.extra {{{
+later(function()
+  require("mini.extra").setup()
 end)
 -- }}}

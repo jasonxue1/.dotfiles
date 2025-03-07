@@ -35,20 +35,20 @@ vim.api.nvim_create_autocmd("LspAttach", {
     local opts = { buffer = ev.buf, silent = true }
 
     -- set keybinds
-    -- opts.desc = "Show LSP references"
-    -- keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
+    opts.desc = "Show LSP references"
+    keymap.set("n", "gR", "<cmd>lua MiniExtra.pickers.lsp({ scope = 'references' })<CR>", opts) -- show definition, references
 
-    opts.desc = "Go to declaration"
-    keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
+    opts.desc = "Show LSP declaration"
+    keymap.set("n", "gD", "<cmd>lua MiniExtra.pickers.lsp({ scope = 'declaration' })<CR>", opts) -- show definition, references
 
-    -- opts.desc = "Show LSP definitions"
-    -- keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
+    opts.desc = "Show LSP definition"
+    keymap.set("n", "gd", "<cmd>lua MiniExtra.pickers.lsp({ scope = 'definition' })<CR>", opts) -- show definition, references
 
-    -- opts.desc = "Show LSP implementations"
-    -- keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
+    opts.desc = "Show LSP implementation"
+    keymap.set("n", "gi", "<cmd>lua MiniExtra.pickers.lsp({ scope = 'implementation' })<CR>", opts) -- show definition, references
 
-    -- opts.desc = "Show LSP type definitions"
-    -- keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
+    opts.desc = "Show LSP type definition"
+    keymap.set("n", "gt", "<cmd>lua MiniExtra.pickers.lsp({ scope = 'type_definition' })<CR>", opts) -- show definition, references
 
     opts.desc = "See available code actions"
     keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
@@ -69,10 +69,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
     keymap.set("n", "]d", vim.diagnostic.goto_next, opts) -- jump to next diagnostic in buffer
 
     opts.desc = "Show documentation for what is under cursor"
-    keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
+    keymap.set("n", "G", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
 
     opts.desc = "Restart LSP"
-    keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
+    keymap.set("n", "<leader>rs", "<cmd>LspRestart<CR>", opts) -- mapping to restart lsp if necessary
 
     -- }}}
   end,
@@ -92,6 +92,7 @@ vim.diagnostic.config({
 
 local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+---@diagnostic disable-next-line: unused-local
 local on_init = function(client, bufnr)
   vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 end
@@ -105,6 +106,7 @@ lspconfig.lua_ls.setup({
         globals = {
           "vim",
           "MiniDeps",
+          "MiniPick",
         },
       },
       hint = {

@@ -4,8 +4,8 @@ vim.g.stylua_indent_width = 2
 
 local opt = vim.opt
 
--- 相对行号
-opt.relativenumber = true
+-- 行号
+-- opt.relativenumber = true
 opt.number = true
 
 -- tab与缩进
@@ -94,4 +94,3 @@ opt.foldmethod = "marker"
 
 -- highlight
 vim.cmd("syntax on")
-

@@ -132,9 +132,24 @@ require("lspconfig").ltex.setup({
 })
 -- }}}
 -- python {{{
-require("lspconfig").ruff.setup({})
-require("lspconfig").pyright.setup({
+lspconfig.ruff.setup({})
+lspconfig["basedpyright"].setup({
   capabilities = lsp_capabilities,
   on_init = on_init,
+  settings = {
+    basedpyright = {
+      typeCheckingMode = "basic",
+      analysis = {
+        diagnosticMode = "openFilesOnly",
+        strictGenericNarrowing = true,
+        inlayHints = {
+          variableTypes = true,
+          callArgumentNames = true,
+          functionReturnTypes = true,
+          genericTypes = true,
+        },
+      },
+    },
+  },
 })
 -- }}}

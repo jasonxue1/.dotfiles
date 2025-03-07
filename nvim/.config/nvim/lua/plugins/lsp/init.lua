@@ -15,7 +15,7 @@ later(function()
       -- "ast_grep",
       "lua_ls",
       "ltex",
-      "pyright",
+      "basedpyright",
       "ruff",
     },
   })
@@ -159,11 +159,11 @@ later(function()
     }),
 
     sources = cmp.config.sources({
-      { name = "nvim_lsp",      priority = 4 },
+      { name = "nvim_lsp", priority = 4 },
       { name = "mini_snippets", priority = 3 },
-      { name = "path",          priority = 100 },
-      { name = "buffer",        keyword_length = 2,       priority = 2 },
-      { name = "nvim_lua",      priority = 1 },
+      { name = "path", priority = 100 },
+      { name = "buffer", keyword_length = 2, priority = 2 },
+      { name = "nvim_lua", priority = 1 },
       { name = "latex_symbols", option = { strategy = 0 } },
     }),
 

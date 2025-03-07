@@ -126,7 +126,6 @@ lspconfig.lua_ls.setup({
 -- }}}
 -- latex {{{
 require("lspconfig").ltex.setup({
-
   capabilities = lsp_capabilities,
   on_init = on_init,
 })

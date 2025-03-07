@@ -96,9 +96,21 @@ later(function()
       "hrsh7th/cmp-nvim-lua",
       "petertriho/cmp-git",
       "kdheepak/cmp-latex-symbols",
+      "folke/lazydev.nvim",
+      "f3fora/cmp-spell",
     },
   })
 
+  vim.opt.spell = true
+  vim.opt.spelllang = { "en_us" }
+
+  require("lazydev").setup({
+    library = {
+      -- See the configuration section for more details
+      -- Load luvit types when the `vim.uv` word is found
+      { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+    },
+  })
   -- Set up nvim-cmp.
   local cmp = require("cmp")
 
@@ -159,12 +171,23 @@ later(function()
     }),
 
     sources = cmp.config.sources({
+      { name = "lazydev", group_index = 0 },
       { name = "nvim_lsp", priority = 4 },
       { name = "mini_snippets", priority = 3 },
       { name = "path", priority = 100 },
       { name = "buffer", keyword_length = 2, priority = 2 },
       { name = "nvim_lua", priority = 1 },
       { name = "latex_symbols", option = { strategy = 0 } },
+      {
+        name = "spell",
+        option = {
+          keep_all_entries = false,
+          enable_in_context = function()
+            return true
+          end,
+          preselect_correct_word = true,
+        },
+      },
     }),
 
     experimental = {

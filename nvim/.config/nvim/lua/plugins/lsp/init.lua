@@ -38,7 +38,7 @@ later(function()
     source = "mfussenegger/nvim-lint",
   })
   require("lint").linters_by_ft = {
-    -- lua = { "ast_grep" },
+    -- html = { "ast_grep" },
   }
 end)
 -- }}}
@@ -65,6 +65,8 @@ later(function()
       lua = { "stylua" },
       json = { "jq" },
       tex = { "tex-fmt" },
+      html = { "djlint" },
+      javascript = { "prettierd", "prettier", stop_after_first = true },
     },
 
     format_on_save = {
@@ -146,7 +148,7 @@ later(function()
       ["<C-f>"] = cmp.mapping.scroll_docs(4),
       ["<C-Space>"] = cmp.mapping.complete(),
       ["<C-e>"] = cmp.mapping.abort(),
-      ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+      ["<CR>"] = cmp.mapping.confirm({ select = false }),
 
       ["<Tab>"] = function(fallback)
         if cmp.visible() then

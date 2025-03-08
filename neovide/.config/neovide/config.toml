@@ -16,7 +16,7 @@ wsl = false
 
 [font]
 normal = ["Maple Mono NF CN"]
-size = 13.0
+size = 15.0
 
 frame = "buttonless"
 title-hidden = true

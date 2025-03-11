@@ -1,10 +1,32 @@
 {
-  "Test": {
+  "test": {
     "prefix": "test",
     "body": [
       "This is a test",
       "It's just a test"
     ],
     "description": "It's a test"
+  },
+  "texstart": {
+    "prefix": "texstart",
+    "body": [
+      "\\documentclass[utf8,zihao=-4]{ctexart}",
+      "\\usepackage[a4paper,top=2cm,bottom=2.5cm,left=2.5cm,right=2.5cm]{geometry}",
+      "\\usepackage{amsmath}"
+    ],
+    "description": "Latex start"
+  },
+  "exercise": {
+    "prefix": "exercise",
+    "body": [
+      "\\newcounter{exercise}",
+      "\\newenvironment{Tm}",
+      "{",
+      "  \\refstepcounter{exercise}",
+      "  \\par\\noindent\\textbf{\\theexercise}",
+      "}",
+      "{\\par\\vspace{4cm}}"
+    ],
+    "description": "Latex Exercise"
   }
 }

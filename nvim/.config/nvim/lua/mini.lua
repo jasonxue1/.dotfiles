@@ -406,6 +406,7 @@ end)
 -- mini.surround {{{
 later(function()
   require("mini.surround").setup()
+  vim.keymap.set({ "n", "x" }, "s", "<Nop>")
 end)
 -- }}}
 -- nvim-lastplace {{{
@@ -444,4 +445,7 @@ end)
 later(function()
   require("mini.extra").setup()
 end)
+-- }}}
+-- mini.map {{{
+require("mini.map").setup()
 -- }}}

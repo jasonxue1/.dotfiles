@@ -449,3 +449,6 @@ end)
 -- mini.map {{{
 require("mini.map").setup()
 -- }}}
+-- mini.move{{{
+require("mini.move").setup()
+-- }}}

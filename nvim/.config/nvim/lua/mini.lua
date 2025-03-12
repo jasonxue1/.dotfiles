@@ -27,10 +27,10 @@ now(function()
     if vim.fn.filereadable(vim.fn.bufname("%")) > 0 then
       MiniFiles.open(vim.api.nvim_buf_get_name(0))
     else
-      MiniFiles.open(Minifiles.get_latest_path())
+      MiniFiles.open(MiniFiles.get_latest_path())
     end
   end
-  vim.keymap.set("n", "<leader>ee", "<cmd>lua MiniFiles.open()<CR>", { desc = "MiniFiles open" })
+  vim.keymap.set("n", "<leader>ee", MiniFiles.open, { desc = "MiniFiles open" })
   vim.keymap.set("n", "<leader>ef", minifiles_open_current, { desc = "MiniFiles open current" })
   local show_dotfiles = true
 
@@ -448,11 +448,21 @@ later(function()
 end)
 -- }}}
 -- mini.map {{{
-require("mini.map").setup()
+later(function()
+  require("mini.map").setup()
+  vim.keymap.set("n", "<leader>p", MiniMap.toggle, { desc = "MiniMap" })
+end)
 -- }}}
 -- mini.move{{{
 require("mini.move").setup()
 -- }}}
 -- ai {{{
 require("plugins.ai")
+-- }}}
+-- bigfile {{{
+now(function()
+  add({
+    source = "LunarVim/bigfile.nvim",
+  })
+end)
 -- }}}

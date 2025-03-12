@@ -1,5 +1,4 @@
 local add, later, now = MiniDeps.add, MiniDeps.later, MiniDeps.now
--- ChatGPT {{{
 later(function()
   add({
     source = "jackMort/ChatGPT.nvim",
@@ -24,7 +23,7 @@ later(function()
       --         return "gpt-3.5-turbo"
       --     end
       -- end,
-      model = "gpt-4o-mini",
+      model = "gpt-4o",
       frequency_penalty = 0,
       presence_penalty = 0,
       max_tokens = 4095,
@@ -56,4 +55,3 @@ later(function()
     { desc = "Code Readability Analysis" }
   )
 end)
--- }}}

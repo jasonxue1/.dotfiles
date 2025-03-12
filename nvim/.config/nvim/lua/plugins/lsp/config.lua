@@ -178,6 +178,7 @@ later(function()
   lspconfig.eslint.setup({
     capabilities = lsp_capabilities,
     on_init = on_init,
+    ---@diagnostic disable-next-line: unused-local
     on_attach = function(client, bufnr)
       vim.api.nvim_create_autocmd("BufWritePre", {
         buffer = bufnr,
@@ -187,6 +188,7 @@ later(function()
   })
   lspconfig["ts_ls"].setup({
     capabilities = lsp_capabilities,
+    on_init = on_init,
     on_attach = lsp_attach,
     init_options = {
       plugins = {

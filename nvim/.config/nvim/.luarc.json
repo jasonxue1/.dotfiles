@@ -2,5 +2,8 @@
   "workspace.library": [
     "/Users/jason/.config/nvim",
   ],
-  "workspace.checkThirdParty": false
+  "workspace.checkThirdParty": false,
+    "diagnostics.disable": [
+        "unused-local"
+    ]
 }

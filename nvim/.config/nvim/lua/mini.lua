@@ -128,9 +128,10 @@ later(function()
       { mode = "n", keys = "<leader>e", desc = "+ MiniFiles" },
       { mode = "g", keys = "gp", desc = "+ Preview" },
       { mode = "n", keys = "<leader>z", desc = "+ Ternimal" },
-      { mode = "n", keys = "<leader>c", desc = "+ See available code actions" },
       { mode = "n", keys = "<leader>r", desc = "+ Rename/Restart" },
       { mode = "n", keys = "<leader>n", desc = "+ Window" },
+      { mode = "n", keys = "<leader>c", desc = "+ ChatGPT" },
+      { mode = "v", keys = "<leader>c", desc = "+ ChatGPT" },
     },
     window = {
       delay = 300,
@@ -451,4 +452,7 @@ require("mini.map").setup()
 -- }}}
 -- mini.move{{{
 require("mini.move").setup()
+-- }}}
+-- ai {{{
+require("plugins.ai")
 -- }}}

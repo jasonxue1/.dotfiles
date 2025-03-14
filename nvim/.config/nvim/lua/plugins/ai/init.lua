@@ -24,6 +24,11 @@ later(function()
           env = {
             api_key = "OPENAI_API_KEY",
           },
+          schema = {
+            model = {
+              default = "o1-mini",
+            },
+          },
         })
       end,
     },

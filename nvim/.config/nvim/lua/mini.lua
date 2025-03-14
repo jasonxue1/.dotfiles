@@ -13,6 +13,7 @@ end
 -- Set up 'mini.deps' (customize to your liking)
 require("mini.deps").setup({ path = { package = path_package } })
 require("plugins.lsp")
+require("plugins.ui")
 
 -- Use 'mini.deps'. `now()` and `later()` are helpers for a safe two-stage
 -- startup and are optional.
@@ -189,16 +190,6 @@ later(function()
   })
 end)
 -- }}}
--- mini.tabline {{{
-now(function()
-  require("mini.tabline").setup()
-end)
--- }}}
--- mini.statusline {{{
-now(function()
-  require("mini.statusline").setup()
-end)
--- }}}
 -- mini.indentscope {{{
 now(function()
   require("mini.indentscope").setup({
@@ -211,23 +202,6 @@ end)
 -- mini.icons {{{
 later(function()
   require("mini.icons").setup()
-end)
--- }}}
--- mini.highlights {{{
-later(function()
-  local hipatterns = require("mini.hipatterns")
-  hipatterns.setup({
-    highlighters = {
-      -- Highlight standalone 'FIXME', 'HACK', 'TODO', 'NOTE', 'DONE'
-      fixme = { pattern = "%f[%w]()FIXME()%f[%W]", group = "MiniHipatternsFixme" },
-      hack = { pattern = "%f[%w]()HACK()%f[%W]", group = "MiniHipatternsHack" },
-      todo = { pattern = "%f[%w]()TODO()%f[%W]", group = "MiniHipatternsTodo" },
-      note = { pattern = "%f[%w]()NOTE()%f[%W]", group = "MiniHipatternsNote" },
-      done = { pattern = "%f[%w]()DONE()%f[%W]", group = "MiniHipatternsNote" },
-      -- Highlight hex color strings (`#rrggbb`) using that color
-      hex_color = hipatterns.gen_highlighter.hex_color(),
-    },
-  })
 end)
 -- }}}
 -- git {{{
@@ -260,17 +234,6 @@ end)
 -- mini.sessions {{{
 now(function()
   require("mini.sessions").setup({})
-end)
--- }}}
--- mini.starter {{{
-now(function()
-  require("mini.starter").setup()
-end)
--- }}}
--- mini.notify {{{
-later(function()
-  require("mini.notify").setup()
-  vim.keymap.set("n", "<leader>N", MiniNotify.clear, { desc = "Notify clear" })
 end)
 -- }}}
 -- mini.jump {{{
@@ -384,16 +347,6 @@ later(function()
   }
 end)
 -- }}}
--- mini.cursorword{{{
-later(function()
-  require("mini.cursorword").setup()
-end)
--- }}}
--- mini.trailspace{{{
-later(function()
-  require("mini.trailspace").setup()
-end)
--- }}}
 -- mini.align {{{
 later(function()
   require("mini.align").setup()
@@ -445,12 +398,6 @@ end)
 -- mini.extra {{{
 later(function()
   require("mini.extra").setup()
-end)
--- }}}
--- mini.map {{{
-later(function()
-  require("mini.map").setup()
-  vim.keymap.set("n", "<leader>p", MiniMap.toggle, { desc = "MiniMap" })
 end)
 -- }}}
 -- mini.move{{{

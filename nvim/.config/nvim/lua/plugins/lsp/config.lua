@@ -1,30 +1,52 @@
 local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 local lspconfig = require("lspconfig")
+local navic = require("nvim-navic")
 local keymap = vim.keymap
 later(function()
-  --- goto-preview {{{
-  require("goto-preview").setup({
-    width = 120, -- Width of the floating window
-    height = 15, -- Height of the floating window
-    border = { "↖", "─", "┐", "│", "┘", "─", "└", "│" }, -- Border characters of the floating window
-    default_mappings = true, -- Bind default mappings
-    debug = false, -- Print debug information
-    opacity = nil, -- 0-100 opacity level of the floating window where 100 is fully transparent.
-    resizing_mappings = false, -- Binds arrow keys to resizing the floating window.
-    post_open_hook = nil, -- A function taking two arguments, a buffer and a window to be ran as a hook.
-    post_close_hook = nil, -- A function taking two arguments, a buffer and a window to be ran as a hook.
-    references = { -- Configure the telescope UI for slowing the references cycling window.
-      provider = "mini_pick", -- telescope|fzf_lua|snacks|mini_pick|default
+  -- navic {{{
+  navic.setup({
+    icons = {
+      File = "󰈙 ",
+      Module = " ",
+      Namespace = "󰌗 ",
+      Package = " ",
+      Class = "󰌗 ",
+      Method = "󰆧 ",
+      Property = " ",
+      Field = " ",
+      Constructor = " ",
+      Enum = "󰕘",
+      Interface = "󰕘",
+      Function = "󰊕 ",
+      Variable = "󰆧 ",
+      Constant = "󰏿 ",
+      String = "󰀬 ",
+      Number = "󰎠 ",
+      Boolean = "◩ ",
+      Array = "󰅪 ",
+      Object = "󰅩 ",
+      Key = "󰌋 ",
+      Null = "󰟢 ",
+      EnumMember = " ",
+      Struct = "󰌗 ",
+      Event = " ",
+      Operator = "󰆕 ",
+      TypeParameter = "󰊄 ",
     },
-    -- These two configs can also be passed down to the goto-preview definition and implementation calls for one off "peak" functionality.
-    focus_on_open = true, -- Focus the floating window when opening it.
-    dismiss_on_move = false, -- Dismiss the floating window when moving the cursor.
-    force_close = true, -- passed into vim.api.nvim_win_close's second argument. See :h nvim_win_close
-    bufhidden = "wipe", -- the bufhidden option to set on the floating window. See :h bufhidden
-    stack_floating_preview_windows = true, -- Whether to nest floating windows
-    same_file_float_preview = true, -- Whether to open a new floating window for a reference within the current file
-    preview_window_title = { enable = true, position = "left" }, -- Whether to set the preview window title as the filename
-    zindex = 1, -- Starting zindex for the stack of floating windows
+    lsp = {
+      auto_attach = true,
+      preference = nil,
+    },
+    highlight = false,
+    separator = " > ",
+    depth_limit = 0,
+    depth_limit_indicator = "..",
+    safe_output = true,
+    lazy_update_context = false,
+    click = false,
+    format_text = function(text)
+      return text
+    end,
   })
   -- }}}
 
@@ -98,12 +120,15 @@ later(function()
     vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
   end
   local lsp_attach = function(client, bufnr)
-    -- Create your keybindings here...
+    if client.server_capabilities.documentSymbolProvider then
+      navic.attach(client, bufnr)
+    end
   end
   -- lua {{{
   lspconfig.lua_ls.setup({
     capabilities = lsp_capabilities,
     on_init = on_init,
+    on_attach = lsp_attach,
     settings = {
       Lua = {
         diagnostics = {
@@ -137,6 +162,7 @@ later(function()
   require("lspconfig").ltex.setup({
     capabilities = lsp_capabilities,
     on_init = on_init,
+    on_attach = lsp_attach,
   })
   -- }}}
   -- python {{{
@@ -144,6 +170,7 @@ later(function()
   lspconfig["basedpyright"].setup({
     capabilities = lsp_capabilities,
     on_init = on_init,
+    on_attach = lsp_attach,
     settings = {
       basedpyright = {
         typeCheckingMode = "basic",
@@ -165,6 +192,7 @@ later(function()
   lspconfig.ast_grep.setup({
     capabilities = lsp_capabilities,
     on_init = on_init,
+    on_attach = lsp_attach,
   })
   -- }}}
   -- html {{{
@@ -172,22 +200,12 @@ later(function()
   lspconfig.html.setup({
     capabilities = lsp_capabilities,
     on_init = on_init,
+    on_attach = lsp_attach,
   })
   lspconfig.cssls.setup({
     capabilities = lsp_capabilities,
     on_init = on_init,
     on_attach = lsp_attach,
-  })
-  lspconfig.eslint.setup({
-    capabilities = lsp_capabilities,
-    on_init = on_init,
-    ---@diagnostic disable-next-line: unused-local
-    on_attach = function(client, bufnr)
-      vim.api.nvim_create_autocmd("BufWritePre", {
-        buffer = bufnr,
-        command = "EslintFixAll",
-      })
-    end,
   })
   lspconfig["ts_ls"].setup({
     capabilities = lsp_capabilities,

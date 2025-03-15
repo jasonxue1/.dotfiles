@@ -1,0 +1,20 @@
+# basic
+brew "lazygit"
+brew "fzf"
+brew "curl"
+brew "ripgrep"
+brew "fd"
+
+# formatter
+brew "stylua"
+brew "tex-fmt"
+brew "djlint"
+brew "biome"
+
+# lsp
+brew "lua-language-server"
+brew "ltex-ls"
+brew "ruff"
+brew "basedpyright"
+brew "vscode-langservers-extracted"
+brew "typescript-language-server"

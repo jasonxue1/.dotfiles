@@ -1,55 +1,7 @@
 local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 local lspconfig = require("lspconfig")
-local navic = require("nvim-navic")
 local keymap = vim.keymap
 later(function()
-  -- navic {{{
-  navic.setup({
-    icons = {
-      File = "󰈙 ",
-      Module = " ",
-      Namespace = "󰌗 ",
-      Package = " ",
-      Class = "󰌗 ",
-      Method = "󰆧 ",
-      Property = " ",
-      Field = " ",
-      Constructor = " ",
-      Enum = "󰕘",
-      Interface = "󰕘",
-      Function = "󰊕 ",
-      Variable = "󰆧 ",
-      Constant = "󰏿 ",
-      String = "󰀬 ",
-      Number = "󰎠 ",
-      Boolean = "◩ ",
-      Array = "󰅪 ",
-      Object = "󰅩 ",
-      Key = "󰌋 ",
-      Null = "󰟢 ",
-      EnumMember = " ",
-      Struct = "󰌗 ",
-      Event = " ",
-      Operator = "󰆕 ",
-      TypeParameter = "󰊄 ",
-    },
-    lsp = {
-      auto_attach = true,
-      preference = nil,
-    },
-    highlight = false,
-    separator = " > ",
-    depth_limit = 0,
-    depth_limit_indicator = "..",
-    safe_output = true,
-    lazy_update_context = false,
-    click = false,
-    format_text = function(text)
-      return text
-    end,
-  })
-  -- }}}
-
   vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("UserLspConfig", {}),
     callback = function(ev)
@@ -119,11 +71,7 @@ later(function()
   local on_init = function(client, bufnr)
     vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
   end
-  local lsp_attach = function(client, bufnr)
-    if client.server_capabilities.documentSymbolProvider then
-      navic.attach(client, bufnr)
-    end
-  end
+  local lsp_attach = function(client, bufnr) end
   -- lua {{{
   lspconfig.lua_ls.setup({
     capabilities = lsp_capabilities,
@@ -139,6 +87,7 @@ later(function()
             "MiniExtra",
             "MiniFiles",
             "MiniMap",
+            "MiniNotify",
           },
         },
         hint = {
@@ -186,13 +135,6 @@ later(function()
         },
       },
     },
-  })
-  -- }}}
-  -- ast_grep {{{
-  lspconfig.ast_grep.setup({
-    capabilities = lsp_capabilities,
-    on_init = on_init,
-    on_attach = lsp_attach,
   })
   -- }}}
   -- html {{{

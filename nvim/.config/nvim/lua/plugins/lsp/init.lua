@@ -1,44 +1,12 @@
----@diagnostic disable-next-line: unused-local
 local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
--- mason {{{
-later(function()
-  add({
-    source = "williamboman/mason.nvim",
-    depends = {
-      "neovim/nvim-lspconfig",
-      "williamboman/mason-lspconfig.nvim",
-      "antosha417/nvim-lsp-file-operations",
-      -- "WhoIsSethDaniel/mason-tool-installer.nvim",
-      -- "mason-org/mason-registry",
-    },
-  })
-  require("mason").setup()
-  require("mason-lspconfig").setup({
-    ensure_installed = {
-      -- "ast_grep",
-      "lua_ls",
-      "ltex",
-      "basedpyright",
-      "ruff",
-    },
-  })
-  -- require("mason-tool-installer").setup({
-  --   -- Install these linters, formatters, debuggers automatically
-  --   ensure_installed = {
-  --     "jq",
-  --     "stylua",
-  --     "tex-fmt",
-  --   },
-  -- })
-end)
--- }}}
 -- nvim-lint {{{
 later(function()
   add({
     source = "mfussenegger/nvim-lint",
   })
   require("lint").linters_by_ft = {
-    -- html = { "ast_grep" },
+    javascript = { "biome" },
+    css = { "biome" },
   }
 end)
 -- }}}
@@ -47,9 +15,7 @@ later(function()
   add({
     source = "neovim/nvim-lspconfig",
     depends = {
-      "williamboman/mason-lspconfig.nvim",
       "hrsh7th/cmp-nvim-lsp",
-      "SmiteshP/nvim-navic",
     },
   })
   require("plugins.lsp.config")
@@ -63,10 +29,11 @@ later(function()
   require("conform").setup({
     formatters_by_ft = {
       lua = { "stylua" },
-      json = { "jq" },
       tex = { "tex-fmt" },
       html = { "djlint" },
-      javascript = { "prettierd", "prettier", stop_after_first = true },
+      json = { "biome" },
+      javascript = { "biome" },
+      css = { "biome" },
     },
 
     format_on_save = {

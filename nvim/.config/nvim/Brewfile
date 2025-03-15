@@ -13,8 +13,8 @@ brew "biome"
 
 # lsp
 brew "lua-language-server"
-brew "ltex-ls"
-brew "ruff"
-brew "basedpyright"
-brew "vscode-langservers-extracted"
-brew "typescript-language-server"
+brew "texlab"
+# brew "ruff"
+# brew "basedpyright"
+# brew "vscode-langservers-extracted"
+# brew "typescript-language-server"

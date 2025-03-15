@@ -1,5 +1,5 @@
 {
-	"workspace.library": ["/Users/jason/.config/nvim"],
-	"workspace.checkThirdParty": false,
-	"diagnostics.disable": ["unused-local"]
+  "workspace.library": ["/Users/jason/.config/nvim/lua"],
+  "workspace.checkThirdParty": false,
+  "diagnostics.disable": ["unused-local"]
 }

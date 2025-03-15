@@ -1,4 +1,3 @@
--- mini.deps {{{
 -- Clone 'mini.nvim' manually in a way that it gets managed by 'mini.deps'
 local path_package = vim.fn.stdpath("data") .. "/site/"
 local mini_path = path_package .. "pack/deps/start/mini.nvim"
@@ -14,11 +13,11 @@ end
 require("mini.deps").setup({ path = { package = path_package } })
 require("plugins.lsp")
 require("plugins.ui")
+require("plugins.ai")
 
 -- Use 'mini.deps'. `now()` and `later()` are helpers for a safe two-stage
 -- startup and are optional.
 local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
--- }}}
 -- mini.files {{{
 now(function()
   require("mini.files").setup({
@@ -402,9 +401,6 @@ end)
 -- }}}
 -- mini.move{{{
 require("mini.move").setup()
--- }}}
--- ai {{{
-require("plugins.ai")
 -- }}}
 -- bigfile {{{
 now(function()

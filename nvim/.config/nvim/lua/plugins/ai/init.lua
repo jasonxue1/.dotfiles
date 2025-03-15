@@ -1,4 +1,4 @@
-local add = MiniDeps.add
+local later, add = MiniDeps.later, MiniDeps.add
 
 add({
   source = "olimorris/codecompanion.nvim",
@@ -8,4 +8,6 @@ add({
   },
 })
 
-require("plugins.ai.codecompanion")
+later(function()
+  require("plugins.ai.codecompanion")
+end)

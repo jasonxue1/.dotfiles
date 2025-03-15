@@ -22,7 +22,7 @@ export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
 # 设置程序路径（合并所有路径设置）
-export PATH="$HOME/bin:/usr/local/bin:/Library/TeX/texbin:/usr/local/Cellar/mupdf/1.25.4/bin:$PATH"
+export PATH="$HOME/bin:/usr/local/bin:/Library/TeX/texbin:/usr/local/Cellar/mupdf/1.25.4/bin:/opt/local/bin:/opt/local/sbin:$HOME/.local/bin:/Applications/ltex-ls-16.0.0/bin:$PATH"
 
 # 设置终端类型
 export TERM="xterm-256color"

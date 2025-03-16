@@ -6,6 +6,7 @@ require("conform").setup({
     json = { "biome" },
     javascript = { "biome" },
     css = { "biome" },
+    python = { "ruff_format" },
   },
   formatters = {
     biome = {

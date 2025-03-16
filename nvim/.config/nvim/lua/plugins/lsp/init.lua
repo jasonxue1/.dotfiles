@@ -22,7 +22,6 @@ add({
     "petertriho/cmp-git",
     "kdheepak/cmp-latex-symbols",
     "folke/lazydev.nvim",
-    "f3fora/cmp-spell",
   },
 })
 add({ source = "hedyhli/outline.nvim" })

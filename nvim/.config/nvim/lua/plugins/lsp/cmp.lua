@@ -75,17 +75,6 @@ cmp.setup({
     { name = "buffer", keyword_length = 2, priority = 2 },
     { name = "nvim_lua", priority = 1 },
     { name = "latex_symbols", option = { strategy = 0 } },
-    {
-      name = "spell",
-      priority = 0,
-      option = {
-        keep_all_entries = false,
-        enable_in_context = function()
-          return true
-        end,
-        preselect_correct_word = true,
-      },
-    },
   }),
 
   experimental = {

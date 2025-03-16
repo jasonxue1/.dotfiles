@@ -10,3 +10,5 @@ zinit light jeffreytse/zsh-vi-mode
 
 zinit light unixorn/fzf-zsh-plugin
 zinit light zsh-users/zsh-completions
+
+eval $(thefuck --alias)

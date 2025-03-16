@@ -184,7 +184,7 @@ later(function()
     ensure_installed = "all",
     highlight = {
       enable = true,
-      disable = { "tmux" },
+      disable = { "tmux", "latex" },
     },
   })
 end)
@@ -253,6 +253,8 @@ later(function()
   require("markview").setup({
     preview = {
       icon_provider = "mini",
+      filetypes = { "markdown", "latex", "codecompanion" },
+      ignore_buftypes = {},
     },
   })
 end)

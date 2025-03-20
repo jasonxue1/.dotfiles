@@ -39,7 +39,6 @@ end)
 later(function()
   add({
     source = "williamboman/mason.nvim",
-    depends = { "williamboman/mason-lspconfig.nvim", "neovim/nvim-lspconfig" },
   })
   require("mason").setup()
 end)

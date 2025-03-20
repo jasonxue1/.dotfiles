@@ -42,14 +42,6 @@ keymap.set("n", "<leader>x", "<cmd>bd<CR>", { desc = "Close current buffer" })
 keymap.set("n", "L", "<cmd>bn<CR>", { desc = "Go to next buffer" })
 keymap.set("n", "H", "<cmd>bp<CR>", { desc = "Go to previous buffer" })
 
--- Terminal相关
-keymap.set("n", "<leader>zh", "<cmd>sp | terminal<CR>", { desc = "Down terminal" })
-keymap.set("n", "<leader>zv", "<cmd>vsp | terminal<CR>", { desc = "Right terminal" })
-keymap.set("t", "<C-h>", [[ <C-\><C-N><C-w>h ]], opts)
-keymap.set("t", "<C-j>", [[ <C-\><C-N><C-w>j ]], opts)
-keymap.set("t", "<C-k>", [[ <C-\><C-N><C-w>k ]], opts)
-keymap.set("t", "<C-l>", [[ <C-\><C-N><C-w>l ]], opts)
-
 -- visual模式下缩进代码
 keymap.set("v", "<", "<gv", opts)
 keymap.set("v", ">", ">gv", opts)

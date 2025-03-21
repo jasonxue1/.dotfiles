@@ -1,2 +1,2 @@
 require("core")
-require("mini")
+require("plugins")

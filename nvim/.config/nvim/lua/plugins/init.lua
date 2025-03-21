@@ -1,0 +1,5 @@
+require("plugins.deps")
+require("plugins.lsp")
+require("plugins.ui")
+require("plugins.ai")
+require("plugins.utils")

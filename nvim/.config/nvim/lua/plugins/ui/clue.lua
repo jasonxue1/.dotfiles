@@ -48,8 +48,8 @@ miniclue.setup({
     { mode = "n", keys = "<leader>z", desc = "+ Ternimal" },
     { mode = "n", keys = "<leader>r", desc = "+ Rename/Restart" },
     { mode = "n", keys = "<leader>n", desc = "+ Window" },
-    { mode = "n", keys = "<leader>c", desc = "+ ChatGPT" },
-    { mode = "v", keys = "<leader>c", desc = "+ ChatGPT" },
+    { mode = "n", keys = "<leader>c", desc = "+ Crates" },
+    { mode = "v", keys = "<leader>c", desc = "+ Crates" },
   },
   window = {
     delay = 300,

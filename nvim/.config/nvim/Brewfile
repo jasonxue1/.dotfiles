@@ -4,17 +4,19 @@ brew "fzf"
 brew "curl"
 brew "ripgrep"
 brew "fd"
+brew "rustup"
 
 # formatter
 brew "stylua"
 brew "tex-fmt"
 brew "djlint"
 brew "biome"
+brew "taplo"
 
 # lsp
 brew "lua-language-server"
 brew "texlab"
-# brew "ruff"
+brew "ruff"
 # brew "basedpyright"
 # brew "vscode-langservers-extracted"
 # brew "typescript-language-server"

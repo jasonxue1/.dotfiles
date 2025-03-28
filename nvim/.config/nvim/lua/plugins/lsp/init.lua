@@ -1,4 +1,4 @@
-local add, later = MiniDeps.add, MiniDeps.later
+local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 add({ source = "mfussenegger/nvim-lint" })
 add({
   source = "neovim/nvim-lspconfig",
@@ -7,7 +7,6 @@ add({
   },
 })
 add({ source = "stevearc/conform.nvim" })
-add({ source = "rafamadriz/friendly-snippets" })
 add({
   source = "hrsh7th/nvim-cmp",
   depends = {
@@ -22,10 +21,11 @@ add({
     "petertriho/cmp-git",
     "kdheepak/cmp-latex-symbols",
     "folke/lazydev.nvim",
+    "rafamadriz/friendly-snippets",
   },
 })
 add({ source = "hedyhli/outline.nvim" })
-later(function()
+now(function()
   vim.keymap.set("n", "<leader>o", "<cmd>Outline<CR>", { desc = "Toggle Outline" })
   require("outline").setup()
   require("plugins.lsp.cmp")
@@ -34,12 +34,3 @@ later(function()
   require("plugins.lsp.conform")
   require("plugins.lsp.snippets")
 end)
-
--- mason {{{
-later(function()
-  add({
-    source = "williamboman/mason.nvim",
-  })
-  require("mason").setup()
-end)
--- }}}

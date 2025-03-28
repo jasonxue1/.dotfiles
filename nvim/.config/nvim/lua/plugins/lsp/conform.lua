@@ -7,10 +7,15 @@ require("conform").setup({
     javascript = { "biome" },
     css = { "biome" },
     python = { "ruff_format" },
+    rust = { "rustfmt" },
+    toml = { "taplo" },
   },
   formatters = {
     biome = {
       append_args = { "--indent-style=space" },
+    },
+    taplo = {
+      cmd = { "taplo format" },
     },
   },
   format_on_save = {

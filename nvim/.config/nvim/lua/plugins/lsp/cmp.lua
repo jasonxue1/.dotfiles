@@ -75,6 +75,7 @@ cmp.setup({
     { name = "buffer", keyword_length = 2, priority = 2 },
     { name = "nvim_lua", priority = 1 },
     { name = "latex_symbols", option = { strategy = 0 } },
+    { name = "crates", priority = 1 },
   }),
 
   experimental = {

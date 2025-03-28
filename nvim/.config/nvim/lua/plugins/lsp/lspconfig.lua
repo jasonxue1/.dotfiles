@@ -4,6 +4,7 @@ local on_init = function(client, bufnr)
   vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 end
 local lsp_attach = function(client, bufnr)
+  vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
   --
 end
 -- lua {{{
@@ -111,6 +112,23 @@ lspconfig["ts_ls"].setup({
         includeInlayPropertyDeclarationTypeHints = true,
         includeInlayFunctionLikeReturnTypeHints = true,
         includeInlayEnumMemberValueHints = true,
+      },
+    },
+  },
+})
+-- }}}
+-- rust {{{
+lspconfig.rust_analyzer.setup({
+  capabilities = lsp_capabilities,
+  on_init = on_init,
+  on_attach = lsp_attach,
+  settings = {
+    ["rust-analyzer"] = {
+      settings = {
+        cargo = { allFeatures = true },
+      },
+      diagnostics = {
+        enable = false,
       },
     },
   },

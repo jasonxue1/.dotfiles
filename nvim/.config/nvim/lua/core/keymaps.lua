@@ -22,8 +22,8 @@ keymap.set("n", "U", "<C-r>")
 keymap.set("n", "<Tab>", "za")
 
 -- quick move
-keymap.set("n", "J", "9j")
-keymap.set("n", "K", "9k")
+keymap.set("n", "<M-j>", "9j")
+keymap.set("n", "<M-k>", "9k")
 
 keymap.set("n", "<leader>h", "<cmd>nohl<CR>", { desc = "Clear search highlights" })
 

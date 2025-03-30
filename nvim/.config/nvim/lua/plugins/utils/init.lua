@@ -8,6 +8,7 @@ add({ source = "LunarVim/bigfile.nvim" })
 add({ source = "saecki/crates.nvim" })
 add({ source = "AckslD/swenv.nvim" })
 add({ source = "nvzone/typr", depends = { "nvzone/volt" } })
+add({ source = "hat0uma/csvview.nvim" })
 now(function()
   require("plugins.utils.files")
   require("plugins.utils.pairs")
@@ -29,5 +30,11 @@ later(function()
   require("plugins.utils.swenv")
   require("typr").setup({
     stats_filepath = vim.fn.expand("~/.config/nvim/typrstats"),
+  })
+  require("csvview").setup({
+    view = {
+      display_mode = "border",
+      min_culumn_width = 3,
+    },
   })
 end)

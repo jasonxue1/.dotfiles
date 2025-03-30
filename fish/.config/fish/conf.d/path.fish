@@ -17,3 +17,4 @@ set -gx PATH $HOME/.local/bin $PATH
 set -gx PATH $HOME/share/zinit/plugins/unixorn---fzf-zsh-plugin/bin $PATH
 set -gx PATH $HOME/.fzf/bin $PATH
 set -gx PATH $HOME/.rustup/toolchains/stable-x86_64-apple-darwin/bin $PATH
+set -gx PATH $HOME/.cargo/bin $PATH

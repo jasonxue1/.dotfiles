@@ -5,7 +5,6 @@ vim.g.maplocalleader = " "
 local opts = { noremap = true, silent = true }
 local keymap = vim.keymap
 
-keymap.set("n", "gp", "<Nop>")
 -- save and source
 keymap.set(
   "n",

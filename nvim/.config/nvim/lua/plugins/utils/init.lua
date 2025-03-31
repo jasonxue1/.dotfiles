@@ -25,7 +25,19 @@ later(function()
   require("mini.surround").setup()
   vim.keymap.set({ "n", "x" }, "s", "<Nop>")
   require("mini.extra").setup()
-  require("mini.move").setup()
+  require("mini.move").setup({
+    mappings = {
+      left = "<M-H>",
+      right = "<M-L>",
+      down = "<M-J>",
+      up = "<M-K>",
+
+      line_left = "<M-H>",
+      line_right = "<M-L>",
+      line_down = "<M-J>",
+      line_up = "<M-K>",
+    },
+  })
   require("plugins.utils.crates")
   require("plugins.utils.swenv")
   require("typr").setup({

@@ -5,7 +5,7 @@ vim.g.maplocalleader = " "
 local opts = { noremap = true, silent = true }
 local keymap = vim.keymap
 
--- save and source
+-- save and source and exit
 keymap.set(
   "n",
   "<leader>s",
@@ -13,6 +13,7 @@ keymap.set(
   { desc = "Source this file" }
 )
 keymap.set("n", "<leader>w", "<cmd>w<CR>:echo expand('%:t') .. ' has been saved.'<CR>", { desc = "Save" })
+keymap.set("i", "jk", "<esc>")
 
 -- redo
 keymap.set("n", "U", "<C-r>")
